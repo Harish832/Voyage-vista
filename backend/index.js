@@ -10,8 +10,8 @@ app.use(express.json());
 let config = {
   service: "gmail",
   auth: {
-    user: "nithishadhithya04@gmail.com",
-    pass: "fricvsgocduhgujh",
+    user: "",
+    pass: "",
   },
 };
 let transporter = nodemailer.createTransport(config);
@@ -20,7 +20,7 @@ let mailGenerator = new mailgen({
   theme: "default",
   product: {
     name: "VOYAGE VISTA",
-    link: "https://www.google.com/search?q=travel+spots&oq=travel+spots&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCDU0MzhqMGo3qAIIsAIB&sourceid=chrome&ie=UTF-8",
+    link: "url",
   },
 });
 app.get("/api", async (req, res) => {
@@ -84,9 +84,7 @@ app.post("/api", async (req, res) => {
   }
 });
 mongoose
-  .connect(
-    "mongodb+srv://harishankar:a2mNqvaUc0hCtbm1@backenddb.imusayj.mongodb.net/NodeAPI?retryWrites=true&w=majority&appName=backendDB"
-  )
+  .connect("url")
   .then(() => {
     console.log("Connected!");
     app.listen(3001, () => {
